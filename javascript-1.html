@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title>Esempio di Javascript</title>
+        <style>
+            .clicked{
+                color: red;
+                font-weight: bold;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 style="text-align: center; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Benvenuto su JavaScript!</h1>
+        <button id="btn" onclick="Click()">Cliccami!</button>
+
+        <script>
+            function Click(){
+                var pulsante = document.getElementById("btn");
+                pulsante.textContent = "Hai premuto il pulsante!";
+                pulsante.classList.add("clicked");
+            }
+
+            /*
+            Questo codice modifica lo style del testo aggiungendo nella funzione la classe "clicked" che l'utente
+            può cambiare cliccando il pulsante
+            */
+        </script>
+    </body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Esercizio Javascript 5</title>
+    </head>
+    <body>
+        <img src="img/img1.jpg" id="img" alt="immagine">
+        <button onclick="CambiaImmagine()">Cambia immagine</button>
+
+        <script>
+            function CambiaImmagine(){
+                var img = document.getElementById("img");
+                console.log(img.src);
+                if(img.src.includes("img1.jpg"))
+                    img.src = "img/img2.jpg";
+                else
+                    img.src = "img/img1.jpg";
+            }
+
+            /*
+            Questo codice cambia l'immagine dell'elemento di <img>, facendo una specie di "SlideShow" tra le due immagini.
+            Il codice verifica che l'SRC sia "img1.jpg" e se lo è, vada alla seconda immagine alla pressione del pulsante,
+            altrimenti rimanda alla prima immagine.
+            */
+        </script>
+    </body>
+</html>

@@ -4,13 +4,14 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>File Explorer</title>
+        <link rel="icon" href="global/icon.png">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.css">
     </head>
     <body>
         <style>
-            .hidden{
-                display: none;
-            }
+            .hidden{display: none;}
+            .flex{display: flex;}
 
             #loading {
                 position: fixed;
@@ -22,10 +23,6 @@
                 justify-content: center;
                 align-items: center;
                 z-index: 9999;
-            }
-
-            .flex{
-                display: flex;
             }
         </style>
         <div id="loading" class="flex">
@@ -45,11 +42,11 @@
             <h1>Andrea Filice repository File Explorer</h1>
             <ul class="list-group">
                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                    <a href="Esercizi 17_09_25/index-esercizi.html">Esercizi del 17/09/2025</a>
+                    <a href="Esercizi 17_09_25/index-esercizi.html"><i class="bi bi-folder-fill"></i> &nbsp;Esercizi del 17/09/2025</a>
                     <span class="badge text-bg-primary rounded-pill">7</span>
                 </li>
                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                    <a href="Esercizi 01_10_25/index-esercizi.html">Esercizi del 01/10/2025</a>
+                    <a href="Esercizi 01_10_25/index-esercizi.html"><i class="bi bi-folder-fill"></i> &nbsp;Esercizi del 01/10/2025</a>
                     <span class="badge text-bg-primary rounded-pill">4</span>
                 </li>
             </ul>

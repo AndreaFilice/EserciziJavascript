@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esercizio Javascript 2</title>
+    <body>
+        <p id="message">Questo messaggio può essere nascosto.</p>
+        <button onclick="ToggleVisibility()">Mostra/Nascondi il messaggio</button>
+        
+        <script>
+            let currentVisibility = true;
+
+            function ToggleVisibility(){
+                var msg = document.getElementById("message");
+                msg.style.display = (currentVisibility) ? "block" : "none";    
+                currentVisibility = !currentVisibility;
+            }
+
+            /*
+            Questo codice fa un toggle della visibilità del messaggio sopra al pulsante, l'utente può nasconderlo oppure renderlo
+            visibile tramite la funzione che prende l'ID del messaggio e modifica l'attributo "display"
+            */
+        </script>
+    </body>
+</html>

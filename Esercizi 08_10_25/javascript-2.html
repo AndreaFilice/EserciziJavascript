@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esercizio Javascript 2</title>
+    <body>
+        <script>
+            var incassi1 = new Array(7);
+
+            for (let i = 0; i < incassi1.length; i++){
+                let input = prompt("Inserisci l'incasso del giorno: ")
+                incassi1[i] = input;
+            }
+
+            console.log(incassi1)
+
+            var incassi2 = incassi1;
+
+            incassi2[0] = (incassi2[0]) * (1-0.10);
+            incassi2[incassi2.length-1] = (incassi2.length-1) * (1-0.10);
+
+            console.log(incassi1)
+            console.log(incassi2)
+        </script>
+    </body>
+</html>

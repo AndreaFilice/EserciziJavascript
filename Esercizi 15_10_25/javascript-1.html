@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title>Esercizio andamento della Classe V.1</title>
+    </head>
+    <body>
+        <script>
+            function confrontaMedie(mediaPrimo, ...votiSecondo) {
+                const somma = votiSecondo.reduce((a, b) => a + b, 0);
+                const mediaSecondo = somma / votiSecondo.length;
+
+                let A, B;
+
+                if (mediaSecondo < 6) {
+                    if (mediaSecondo < mediaPrimo) {
+                    A = 0; B = 1;
+                    } else {
+                    A = 1; B = 0;
+                    }
+                } else {
+                    if (mediaSecondo < mediaPrimo) {
+                    A = 1; B = 1;
+                    } else {
+                    A = 0; B = 0;
+                    }
+                }
+
+                return [A, B];
+            }
+
+            function gestisciStudenti() {
+                const studenti = [
+                    { nome: "Anna", mediaPrimo: 7, votiSecondo: [6, 7, 6] },
+                    { nome: "Luca", mediaPrimo: 5.5, votiSecondo: [4, 5, 5] },
+                    { nome: "Marco", mediaPrimo: 6, votiSecondo: [7, 8, 7] },
+                    { nome: "Sara", mediaPrimo: 7, votiSecondo: [5, 5, 6] },
+                ];
+
+                let insuffSecondo = 0;
+                let insuffInferiore = 0;
+                let suffInferiore = 0;
+                let suffSuperiore = 0;
+
+                for (const studente of studenti) {
+                    const [A, B] = confrontaMedie(studente.mediaPrimo, ...studente.votiSecondo);
+
+                    const mediaSecondo = studente.votiSecondo.reduce((a, b) => a + b, 0) / studente.votiSecondo.length;
+
+                    console.log(
+                    `${studente.nome} media 1°: ${studente.mediaPrimo.toFixed(2)}, media 2°: ${mediaSecondo.toFixed(2)}, risultato: [${A}, ${B}]`
+                    );
+
+                    if (mediaSecondo < 6) insuffSecondo++;
+                    if (A === 0 && B === 1) insuffInferiore++;
+                    if (A === 1 && B === 1) suffInferiore++;
+                    if (A === 0 && B === 0) suffSuperiore++;
+                }
+
+                console.log("\nRISULTATI FINALI:");
+                console.log(`- Studenti con media 2° insufficiente: ${insuffSecondo}`);
+                console.log(`- Media 2° insufficiente e inferiore al 1°: ${insuffInferiore}`);
+                console.log(`- Media 2° sufficiente ma inferiore al 1°: ${suffInferiore}`);
+                console.log(`- Media 2° sufficiente e superiore al 1°: ${suffSuperiore}`);
+            }
+
+            gestisciStudenti();
+        </script>
+    </body>
+</html>

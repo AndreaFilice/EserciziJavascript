@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title>Esercizio andamento della Classe V.2</title>
+    </head>
+    <body>
+        <script>
+            function confrontaMedie(mediaPrimo, votiSecondo) {
+                const somma = votiSecondo.reduce((a, b) => a + b, 0);
+                const mediaSecondo = somma / votiSecondo.length;
+
+                let A, B;
+
+                if (mediaSecondo < 6) {
+                    if (mediaSecondo < arguments[0]) {
+                        A = 0; B = 1;
+                    } else {
+                        A = 1; B = 0;
+                    }
+                } else {
+                    if (mediaSecondo < arguments[0]) {
+                        A = 1; B = 1;
+                    } else {
+                        A = 0; B = 0;
+                    }
+                }
+
+                return [A, B];
+            }
+
+            function gestisciStudenti() {
+                let totaleStudenti;
+
+                do{
+                    totaleStudenti = parseInt(prompt("Inserisci il numero di studenti: "));
+                } while(totaleStudenti < 0)
+
+                let studenti = new Array(totaleStudenti);
+
+                for(let i = 0; i < totaleStudenti; i++){
+                    var nome = prompt("Inserisci il nome dello studente numero " + (i+1) + ": ")
+                    var mediaPrimo = parseInt(prompt("Inserisci la media del primo quadrimestre: "))
+                    var totaleVoti;
+
+                    do{
+                        totaleVoti = (prompt("Inserisci il totale dei voti del secondo quadrimestre: "));
+                    }
+                    while(totaleVoti < 0);
+                    
+                    var votiSecondoQuadrimestre = new Array(totaleVoti);
+
+                    //FOR PER CICLARE SUI VOTI
+                    for(let i = 0; i < totaleVoti; i++){
+                        var voto;
+                        
+                        do{
+                            voto = parseInt(prompt("Inserisci il voto numero " + (i+1) + ": "));
+                        }
+                        while(voto < 0);
+                        
+                        votiSecondoQuadrimestre[i] = voto;
+                    }
+
+                    studenti[i] = {nome: nome, mediaPrimo: mediaPrimo, votiSecondoQuadrimestre: votiSecondoQuadrimestre};
+                    console.log({nome: nome, mediaPrimo: mediaPrimo, votiSecondoQuadrimestre: votiSecondoQuadrimestre});
+                }
+
+                let insuffSecondo = 0;
+                let insuffInferiore = 0;
+                let suffInferiore = 0;
+                let suffSuperiore = 0;
+
+                for (const studente of studenti) {
+                    const [A, B] = confrontaMedie(studente.mediaPrimo, studente.votiSecondoQuadrimestre);
+
+                    let mediaSecondo = studente.votiSecondoQuadrimestre.reduce((a, b) => a + b, 0) / studente.votiSecondoQuadrimestre.length;
+                    if (mediaSecondo < 6) insuffSecondo++;
+                    if (A === 0 && B === 1) insuffInferiore++;
+                    if (A === 1 && B === 1) suffInferiore++;
+                    if (A === 0 && B === 0) suffSuperiore++;
+                }
+
+                console.log("\nRISULTATI FINALI:");
+                console.log(`- Studenti con media 2° insufficiente: ${insuffSecondo}`);
+                console.log(`- Media 2° insufficiente e inferiore al 1°: ${insuffInferiore}`);
+                console.log(`- Media 2° sufficiente ma inferiore al 1°: ${suffInferiore}`);
+                console.log(`- Media 2° sufficiente e superiore al 1°: ${suffSuperiore}`);
+            }
+
+            gestisciStudenti();
+        </script>
+    </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title>Esercizio registratore di cassa</title>
+    </head>
+    <body>
+        <script>
+            let valoreDiCassaAttuale = 0;
+
+            function calcola(){
+                if(Number.isInteger(arguments[0]))
+                    valoreDiCassaAttuale += arguments[0];
+
+                let totale = 0;
+                for(let i = 1; i < arguments.length; i++){
+                    if(typeof(arguments[i]) != "string")
+                        totale += arguments[i];
+                }
+
+                if(arguments[0] == "+" || arguments[1] == "+")
+                    valoreDiCassaAttuale += totale;
+                else if(arguments[0] == "-" || arguments[1] == "-")
+                    valoreDiCassaAttuale -= totale;
+
+                console.log("Valore di cassa: " + valoreDiCassaAttuale)
+            }
+
+            calcola(10, "+" ,1 ,2 ,5 ,4);
+            calcola("+", 2, 3, 4);
+            calcola("-", 1 ,2 ,3);
+        </script>
+    </body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title>Esercizio Ripasso 2</title>
+        <style>
+            
+        </style>
+    </head>
+    <body>
+        <script>
+            const lettori = [
+                {
+                    nome: "Marco Rossi",
+                    giorniBase: 5,
+                    prestiti: [10, 7, 14]
+                },
+                {
+                    nome: "Giulia Bianchi",
+                    giorniBase: 3,
+                    prestiti: [21, 5]
+                },
+                {
+                    nome: "Luca Verdi",
+                    giorniBase: 10,
+                    prestiti: [3, 3, 3, 3]
+                }
+            ];
+
+            function aggiornaGiorni(base, ...giorniPrestiti) {
+                let totale = base;
+
+                giorniPrestiti.forEach(giorno => {
+                    totale += giorno;
+                });
+
+                return totale;
+            }
+
+            console.log("Report Gestione Prestiti Biblioteca");
+
+            lettori.forEach(lettore => {
+                const giorniTotali = aggiornaGiorni(lettore.giorniBase, ...lettore.prestiti);
+                
+                console.log(`Lettore: ${lettore.nome}`);
+                console.log(`Giorni totali (Base + Prestiti): ${giorniTotali}`);
+            });
+        </script>
+    </body>
+</html>

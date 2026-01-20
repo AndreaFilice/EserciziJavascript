@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title>Esercizio Ripasso 1</title>
+        <style>
+            
+        </style>
+    </head>
+    <body>
+        <script>
+            let giocatori = [
+                {nome: "Chef Franco", punti: 1000, prestazioni: [10, 20, 20]},
+                {nome: "Aurelio Del Regno", punti: 69, prestazioni: [1, 1, 2]},
+                {nome: "Antonio Sbancatore", punti: 104, prestazioni: [22, 2, 39]}
+            ]
+
+            function aggiornaPunti(base, ...punteggi){
+                var points = base
+
+                punteggi.forEach(e => {
+                    points += e
+                })
+
+                return points
+            }
+
+            giocatori.forEach(element => {
+                element.punti = aggiornaPunti(element.punti, ...element.prestazioni)
+                console.log(`Nome: ${element.nome}, punti: ${element.punti}`)
+            })
+        </script>
+    </body>
+</html>
